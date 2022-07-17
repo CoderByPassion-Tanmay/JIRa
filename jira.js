@@ -91,6 +91,7 @@ console.log(uuid);
 
 
 }
+ // if isLocked == =tre we not want to edit our text so 
 
 
 
@@ -106,7 +107,7 @@ for(let i =0 ;i<colorBox.length ; i++)
 //touch waka color main ke  kid div se same h
 // if nhi h to you disply block kr de
 
-function colorFilter()
+function colorFilter(e)
 {
 
     if(isLocked == false)
@@ -114,7 +115,14 @@ function colorFilter()
         alert("please Lock it ");
         return ;
     }
+  
+          // main ->div me se jo color match ho rhe ho unko sirf bahar rehrn do
+   
+          
+          checkTextArea();
+  
     
+
 
     let elem = e.currentTarget;
     console.log(elem);
@@ -203,6 +211,12 @@ function colorFilter()
         {
             Allticket[i].style.display="block"
         }
+
+        for (let i = 0; i < colorBox.length; i++) {
+            // if -> elem has class -> remove
+            // doesnot -> leave 
+            colorBox[i].classList.remove("clicked");
+        }
     }
 
     function lockHelper(e){
@@ -215,4 +229,30 @@ function colorFilter()
     function unlockHelper() {
         isLocked =false;
         showAll();
+        checkTextArea();
+
+    }
+
+
+    function checkTextArea()
+    {
+        
+        let Allticket = document.querySelectorAll(".ticketbox");
+        // check for each ticked heading the the cColor matched or not
+              // Allticket.querySelector()
+      //   console.log(Allticket);
+ 
+        for(let i =0 ; i<Allticket.length;i++)
+        {
+        let tickedContent =    Allticket[i].querySelector(".ticketContent");
+        let textarea =tickedContent.querySelector("textarea");
+        if(isLocked == true)
+        {
+        textarea.setAttribute("readOnly","true");
+      }
+       else{
+          textarea.removeAttribute("readOnly");
+       }
+              
+        }
     }
