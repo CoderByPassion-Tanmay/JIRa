@@ -22,7 +22,7 @@ addbtn.addEventListener("click",function ()
 })
 
 
-
+// sjdldkmf;ldfk;sdlg
 
 // let uid = 458;
 function creatTicket()
