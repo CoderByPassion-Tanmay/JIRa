@@ -78,6 +78,7 @@ border-radius: 7px;
     font-size: 2rem;
 }
 
+
 .main{
   
     /* height: 95vh; */
@@ -93,7 +94,9 @@ border-radius: 7px;
   justify-content:space-evenly;
   flex-wrap: wrap; 
 }
-
+.clicked{
+    background-color: rgb(97, 84, 84)
+}
 .ticketbox{
     /* height:; */
     /* width: 40vh; */

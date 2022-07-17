@@ -4,24 +4,30 @@ let body = document.querySelector("body");
 let Allcolors = document.querySelectorAll(".color");
 let main = document.querySelector(".main");
 const colors = ["green", "aqua","blue","yellow"];
-// let allDivs = document.querySelectorAll(".ticketbox");
+let lock =document.querySelector(".lock");
+let unlock =document.querySelector(".unlock");
 
-// console.log(ticketHeader);
+isLocked = false;
 
 
-console.log(Allcolors);
+// console.log(Allcolors);
 let addbtn =document.querySelector(".fa-plus");
-console.log(addbtn);
+// console.log(addbtn);
 
 
 addbtn.addEventListener("click",function ()
 {
-
+       if(isLocked == true)
+       {
+        alert("Please Unlock First");
+        return;
+       }
     // create a ticket
       creatTicket();
 })
 
-
+lock.addEventListener("click",lockHelper);
+unlock.addEventListener("click",unlockHelper);
 
 
 // let uid = 458;
@@ -89,33 +95,124 @@ console.log(uuid);
 
 
 //Concept Of Filtering
+let colorBox = document.querySelectorAll(".color-boxes");
 
-// for(let i =0 ;i<Allcolors.length ; i++)
-// {
-//     Allcolors[i].addEventListener("click" , colorFilter)
-// }
+for(let i =0 ;i<colorBox.length ; i++)
+{
+    
+    colorBox[i].addEventListener("click" , colorFilter);
+
+}
 //touch waka color main ke  kid div se same h
 // if nhi h to you disply block kr de
 
-// function colorFilter(e)
-// {
-//     let elem = e.currentTarget;
-//     let clickedColor = elem.classList[1];
-//     // console.log(clickedColor);
-//     let ticketbox =document.querySelectorAll(".ticketbox");
+function colorFilter()
+{
 
-//           console.log(ticketbox.length);
-//     for(let i=0 ; i<ticketbox.length ; i++)
-//     {
-//           let ticketheader = ticketbox[i].querySelector(".ticket_header");
-//             let pColor = ticketheader.classList[1];
-//         //   console.log(pColor+"fgdh")
-//           if(pColor ==clickedColor )
-//           {
-//             ticketbox[i].style.display="none";
-//           }
+    if(isLocked == false)
+    {
+        alert("please Lock it ");
+        return ;
+    }
+    
 
-// // 'cd;b'CDATASection;BaseAudioContext;b.'b'
-//           // if first time lcick h to disply none kro and second click h to disply 
-//     } 
-// }
+    let elem = e.currentTarget;
+    console.log(elem);
+    let childElemArr = elem.children;
+    let cColor =  childElemArr[0].classList[1];
+
+
+     let secondClass = elem.classList[1]; 
+     console.log("kdfgjdklfg   "+secondClass);
+
+
+     if(secondClass == "clicked")
+     {
+        // if our class is clicked then smoply remove clicked class property from parent (color-boxes)
+        // remove click
+        elem.classList.remove("clicked");
+
+        // show all ticket
+         showAll();
+             }
+    else{
+        // add clicked class property to color  elem color box
+                // console.log("dsjk")
+
+                // when the color-box clicked then if we 
+                // clicked another color box so we want to remove lciked 
+                // class proverty to another color-box
+
+                // checks for not any
+
+                //    colorBox[i].addEventListener("click" , colorFilter)
+              for(let i = 0 ; i <colorBox.length ; i++)
+              {
+                
+                // "clicked"
+               if(colorBox[i].classList[1] = "clicked");
+               {
+                colorBox[i].classList.remove("clicked");
+               }
+
+
+              }
+
+            elem.classList.add("clicked");
+        //   filter that color in main --> div
+        showClickedColor(cColor);
+    }
+
+
+    } 
+ 
+
+    function showClickedColor(cColor)
+    {
+        // main ->div me se jo color match ho rhe ho unko sirf bahar rehrn do
+
+        let Allticket = document.querySelectorAll(".ticketbox");
+        // check for each ticked heading the the cColor matched or not
+
+        console.log(Allticket);
+
+        for(let i =0 ; i<Allticket.length;i++)
+        {
+        let tickedHeader =    Allticket[i].querySelector(".ticket_header");
+        console.log(tickedHeader);
+
+        
+        console.log(tickedHeader.classList[1]);
+        if(tickedHeader.classList[1]  == cColor)
+        {
+            Allticket[i].style.display="block";
+        }
+        else
+        {
+            Allticket[i].style.display="none";
+
+        }
+        }
+    }
+
+
+    function showAll()
+    {
+        let Allticket = document.querySelectorAll(".ticketbox");
+        for(let i =0 ; i<Allticket.length;i++)
+        {
+            Allticket[i].style.display="block"
+        }
+    }
+
+    function lockHelper(e){
+       
+        
+        isLocked = true;
+
+
+    }
+    function unlockHelper() {
+        isLocked =false;
+        showAll();
+    }
