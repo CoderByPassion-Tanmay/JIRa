@@ -1,0 +1,138 @@
+
+body {
+    margin: 0;
+    background-color: aqua;
+}
+* {
+    box-sizing: border-box;
+    /* question*/
+}
+
+.navbar{
+    height: 5rem;
+    align-items: center;
+    background-color: black;
+    display: flex;
+}
+
+.colors{
+  height: 65%;
+  width: 12rem;
+  margin-right: 5rem;
+  margin-left: 2rem;
+background-color: lightcyan;
+display: flex;
+border-radius: 7px;
+}
+.color-boxes{
+    width: 25%;
+    height: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color{
+    height: 50%;
+    width: 50%;
+    border-radius:4px ;
+}
+.aqua{
+   
+    background-color: aquamarine;
+}
+.bisqu {
+    background-color: bisque;
+}
+.green {
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+.options{
+    height: 65%;
+    width: 7rem;
+    background-color: green;
+    border-radius: 7px;
+    margin-left: 5rem;
+    display: flex;
+}
+
+.box{
+    width: 50%;
+    height: 100%;
+    /* border: 2px;
+    /* border-color:1px solid red ; */
+    /* border-color: 1px solid red;*/
+    /* border: 1px solid blue; */ 
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.icon{
+    color: white;
+    font-size: 2rem;
+}
+
+.main{
+  
+    /* height: 95vh; */
+    min-height: 90vh;
+    border: 2px solid green;
+    /* width: 70vh; */
+    /* position: relative; */
+    /* padding: 2rem; */
+    background-color: rgb(238, 12, 12);
+    padding: 2rem;
+    display: flex;
+  
+  justify-content:space-evenly;
+  flex-wrap: wrap; 
+}
+
+.ticketbox{
+    /* height:; */
+    /* width: 40vh; */
+    /* margin-top: 50rem; */
+    height: 15rem;
+    width: 18rem;
+    background-color: blue;
+    /* padding: 2px; */
+    /* margin: 1rem; */
+
+}
+/* klf'szfkaf */
+.ticket_header{
+    height: 5%;
+   
+    /* background-color: bisque; */
+}
+.ticketContent
+{
+    height: 95%;
+    background-color: black;
+}
+.uid{
+    height: 15%;
+    background-color: blueviolet;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    /* margin: 1eew; */
+}
+
+textarea {
+    height: 85%;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-family: 'roboto',sans-serif;
+    /* vertical distance between twop lines  */
+     line-height: 145%;
+     text-align: center;
+}
