@@ -7,11 +7,14 @@ const colors = ["green", "aqua","blue","yellow"];
 let lock =document.querySelector(".lock");
 let unlock =document.querySelector(".unlock");
 
-isLocked = false;
-
+ let isLocked = false;
+let isDelete = false;
 
 // console.log(Allcolors);
 let addbtn =document.querySelector(".fa-plus");
+let delbtn =document.querySelector(".fa-minus");
+
+
 // console.log(addbtn);
 
 
@@ -30,10 +33,12 @@ lock.addEventListener("click",lockHelper);
 unlock.addEventListener("click",unlockHelper);
 
 
+
 // let uid = 458;
+
 function creatTicket()
 {
-     //make a div dynamically.
+    //make a div dynamically.
      var uuid = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
 console.log(uuid);
       let ticket = document.createElement("div");
@@ -51,19 +56,39 @@ console.log(uuid);
 
 
         let ticketHeader =ticket.querySelector(".ticket_header");
-        ticketHeader.addEventListener("click",changeColor)
-    //     console.log(ticketHeader.length);
+        ticketHeader.addEventListener("click",changeColor);
+        ticket.addEventListener("click",deleteTicket);
 
 
+    
 
-    //    for(let i=0 ;i<ticketHeader.length;i++)
-    //    {
-    //     ticketHeader[i].addEventListener("click" ,changeColor );
-    //    }
 
-        function changeColor(e)
+}
+// concept of Delete Ticket
+delbtn.addEventListener("click",isDeleteHelper);
+
+function deleteTicket(e)
+{
+
+    console.log(isDelete);
+
+    if(isDelete == true && isLocked == false)
+    {
+        e.currentTarget.remove();
+           
+    }
+            isDelete = false;
+}
+
+// concept of CHange Color
+       function changeColor(e)
         {
-  
+            if(isLocked == true)
+            {
+             alert("Please Unlock First");
+             return;
+            }
+
     let header = e.currentTarget;
     //    i have html element and classes can be used to identify that
     //  element and set another class to modify it's behaviour 
@@ -86,15 +111,7 @@ console.log(uuid);
         classes.remove(cColor);
     classes.add(nextColor);      
   }
-      // console.log(tickerHeader);
-
-
-
-}
- // if isLocked == =tre we not want to edit our text so 
-
-
-
+      
 //Concept Of Filtering
 let colorBox = document.querySelectorAll(".color-boxes");
 
@@ -104,6 +121,7 @@ for(let i =0 ;i<colorBox.length ; i++)
     colorBox[i].addEventListener("click" , colorFilter);
 
 }
+
 //touch waka color main ke  kid div se same h
 // if nhi h to you disply block kr de
 
@@ -118,8 +136,8 @@ function colorFilter(e)
   
           // main ->div me se jo color match ho rhe ho unko sirf bahar rehrn do
    
-          
-          checkTextArea();
+        // check also for filtering if our content   
+        //   checkTextArea();
   
     
 
@@ -223,9 +241,11 @@ function colorFilter(e)
        
         
         isLocked = true;
-
+          checkTextArea();
+           
 
     }
+
     function unlockHelper() {
         isLocked =false;
         showAll();
@@ -255,4 +275,16 @@ function colorFilter(e)
        }
               
         }
+    }
+
+    function isDeleteHelper()
+    {
+        if(isDelete == false)
+        {
+        isDelete = true;
+        }
+        else{
+            isDelete = false;
+        }
+
     }

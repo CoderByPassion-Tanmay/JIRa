@@ -88,7 +88,7 @@ border-radius: 7px;
     /* width: 70vh; */
     /* position: relative; */
     /* padding: 2rem; */
-    background-color: rgb(238, 12, 12);
+    background-color: red;
     padding: 2rem;
     display: flex;
   
@@ -122,7 +122,7 @@ border-radius: 7px;
 }
 .uid{
     height: 15%;
-    background-color: blueviolet;
+    background-color: #7D9D9C;
     font-size: 1.3rem;
     font-weight: bolder;
     padding-top: 0.5rem;
